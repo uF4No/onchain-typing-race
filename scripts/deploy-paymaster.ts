@@ -41,16 +41,16 @@ export default async function deployGamePaymaster(hre: HardhatRuntimeEnvironment
   // SKIPPED
 
   // Verify the contract (optional, but recommended)
-  console.log("🔍 Verifying contract...");
-  try {
-    await hre.run("verify:verify", {
-      address: paymasterAddress,
-      constructorArguments: [GAME_CONTRACT_ADDRESS],
-    });
-    console.log("✅ Contract verified successfully");
-  } catch (error) {
-    console.log("⚠️  Contract verification failed:", error);
-  }
+  // console.log("🔍 Verifying contract...");
+  // try {
+  //   await hre.run("verify:verify", {
+  //     address: paymasterAddress,
+  //     constructorArguments: [GAME_CONTRACT_ADDRESS],
+  //   });
+  //   console.log("✅ Contract verified successfully");
+  // } catch (error) {
+  //   console.log("⚠️  Contract verification failed:", error);
+  // }
 
   // Get paymaster stats
   try {

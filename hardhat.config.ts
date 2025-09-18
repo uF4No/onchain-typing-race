@@ -21,6 +21,13 @@ const config: HardhatUserConfig = {
       verifyURL: "https://explorer.sepolia.era.zksync.dev/contract_verification",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
+    zkVirtual:{
+      url: `https://virtual.zksync-sepolia.eu.rpc.tenderly.co/d9c7c4e7-0bf1-446f-b2d0-599efd997275`,
+      ethNetwork: 'sepolia',
+      zksync: true,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+
+    },
     hardhat: {
       zksync: false, // Disable ZKsync for local testing
     },
