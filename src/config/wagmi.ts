@@ -12,7 +12,8 @@ export const config = createConfig({
     // ZKsync SSO connector for biometric authentication
     zksyncSsoConnector({
       metadata: {
-        name: 'ZKsync Typing Race'
+        name: 'Onchain Typing Race',
+        icon: `https://code.zksync.io/_ipx/w_240&q_90/logos/zksync-icon.svg`
       },
       // Session configuration for gasless transactions
       session: {

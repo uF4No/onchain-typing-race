@@ -77,13 +77,21 @@ export const useTypingGameQueue = () => {
   const nonceRef = useRef<number | null>(null);
   
   const { data: walletClient } = useWalletClient();
-  // extend client to support native paymasters
-  walletClient?.extend(eip712WalletActions());
-
   const { address } = useAccount();
   const publicClient = usePublicClient();
-  // extend client to support native paymasters
-  publicClient.extend(eip712WalletActions())
+
+  // Extend clients to support native paymasters (only when they change)
+  useEffect(() => {
+    if (walletClient) {
+      walletClient.extend(eip712WalletActions());
+    }
+  }, [walletClient]);
+
+  useEffect(() => {
+    if (publicClient) {
+      publicClient.extend(eip712WalletActions());
+    }
+  }, [publicClient]);
 
   // Monitor all sent transactions for confirmation
   useEffect(() => {

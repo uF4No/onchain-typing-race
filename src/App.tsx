@@ -101,7 +101,7 @@ function App() {
       <header className="app-header">
         <div className="header-content">
           <div className="header-title">
-            <h1>⚡ ZKsync Typing Race</h1>
+            <h1>⚡ Onchain Typing Race</h1>
             <p>Experience lightning-fast 200ms block times through typing!</p>
           </div>
           <div className="header-auth">
