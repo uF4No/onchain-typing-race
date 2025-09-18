@@ -187,17 +187,16 @@ body {
   justify-content: center;
 }
 
+.blockchain-feed-container {
+  width: 100%;
+}
+
 .blockchain-feed {
   width: 100%;
   max-width: 800px;
 }
 
-.results-view {
-  width: 100%;
-  max-width: 800px;
-  display: flex;
-  justify-content: center;
-}
+
 
 .leaderboard-view {
   width: 100%;

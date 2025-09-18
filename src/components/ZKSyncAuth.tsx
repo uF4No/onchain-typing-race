@@ -58,31 +58,12 @@ const ZKSyncAuth: React.FC<ZKSyncAuthProps> = ({ onAuthSuccess, onAuthError }) =
     <div className="auth-container">
       <div className="auth-card">
         <div className="auth-header">
-          <div className="auth-icon">🔐</div>
+          <div className="auth-icon">⌨️💨</div>
           <h1>Welcome to Onchain Type Racer</h1>
           <p>Experience 200ms block times through typing!</p>
         </div>
 
-        <div className="auth-content">
-          <h2>Connect Your Wallet</h2>
-          <p>Choose your preferred connection method to start playing.</p>
-          
-          <div className="auth-features">
-            <div className="feature">
-              <span className="feature-icon">⚡</span>
-              <span>Gasless transactions</span>
-            </div>
-            <div className="feature">
-              <span className="feature-icon">🔒</span>
-              <span>Secure authentication</span>
-            </div>
-            <div className="feature">
-              <span className="feature-icon">🎮</span>
-              <span>Seamless gaming experience</span>
-            </div>
-          </div>
-
-          <div className="game-preview">
+              <div className="game-preview">
             <h3>🎯 How It Works</h3>
             <div className="preview-demo">
               <div className="demo-typing">
@@ -120,6 +101,11 @@ const ZKSyncAuth: React.FC<ZKSyncAuthProps> = ({ onAuthSuccess, onAuthError }) =
             </p>
           </div>
 
+        <div className="auth-content">
+          <h2>Create an account to start</h2>
+
+    
+
           {error && (
             <div className="auth-error">
               <span className="error-icon">⚠️</span>
@@ -143,20 +129,13 @@ const ZKSyncAuth: React.FC<ZKSyncAuthProps> = ({ onAuthSuccess, onAuthError }) =
                 ) : (
                   <>
                     <span className="auth-button-icon">🔐</span>
-                    Connect with {connector.name}
+                    Signup with ZKsync SSO
                   </>
                 )}
               </button>
             ))}
           </div>
 
-          {/* Debug info - shows available connectors */}
-          <div className="auth-debug" style={{ fontSize: '0.8rem', color: '#666', marginTop: '20px', padding: '10px', background: '#f5f5f5', borderRadius: '4px' }}>
-            <p><strong>Available connectors:</strong> {connectors.length}</p>
-            {connectors.map((connector, index) => (
-              <p key={index}>- {connector.name} (ID: {connector.id})</p>
-            ))}
-          </div>
 
           <div className="auth-info">
             <p>

@@ -37,7 +37,7 @@ const TypingGame: React.FC<TypingGameProps> = ({
     totalLettersTyped: 0,
   });
 
-  const [allSessionTransactions, setAllSessionTransactions] = useState<GameTransaction[]>([]);
+
   const inputRef = useRef<HTMLInputElement>(null);
   const gameTimerRef = useRef<NodeJS.Timeout | null>(null);
   const gameCompletedRef = useRef<boolean>(false);
@@ -53,7 +53,6 @@ const TypingGame: React.FC<TypingGameProps> = ({
     completeWord,
     completeGame,
     resetGame,
-    clearCompleted,
     cleanup,
     pendingOps,
     stats,
@@ -84,9 +83,8 @@ const TypingGame: React.FC<TypingGameProps> = ({
       status: tx.status,
       error: tx.error,
     }));
-    const allTx = [...convertedTx, ...allSessionTransactions];
-    onTransactionUpdate(allTx);
-  }, [transactions, allSessionTransactions]); // Removed onTransactionUpdate to prevent loops
+    onTransactionUpdate(convertedTx);
+  }, [transactions, onTransactionUpdate]);
 
   // Monitor game completion and calculate results
   const wasCompletingRef = useRef(false);
@@ -430,7 +428,6 @@ const TypingGame: React.FC<TypingGameProps> = ({
               <button onClick={handleStartGame} className="start-button">
                 Start Game
               </button>
-              <p className="hint">Or press Enter to start</p>
             </>
           )}
           
@@ -575,36 +572,7 @@ const TypingGame: React.FC<TypingGameProps> = ({
         )}
       </div>
 
-      <div className="transaction-preview">
-        <h4>Recent Blockchain Transactions</h4>
-        <div className="transactions-list">
-          {transactions.slice(0, 5).map((tx) => (
-            <div key={tx.id} className={`transaction ${tx.status} ${tx.type}`}>
-              <span className="tx-type-icon">
-                {tx.type === 'letter' ? '📝' : 
-                 tx.type === 'startGame' ? '🎮' :
-                 tx.type === 'completeGame' ? '🏁' : '✅'}
-              </span>
-              <span className="tx-data">
-                {tx.type === 'letter' ? `Letter: "${tx.letter}"` :
-                 tx.type === 'startGame' ? 'Game Started' :
-                 tx.type === 'completeGame' ? 'Game Completed' : 'Transaction'}
-              </span>
-              <span className={`tx-status ${tx.status}`}>
-                {tx.status === 'pending' ? '⏳' : 
-                 tx.status === 'sent' ? '📡' :
-                 tx.status === 'confirmed' ? '✅' : '❌'}
-              </span>
-            </div>
-          ))}
-        </div>
-        
-        {pendingOps > 0 && (
-          <div className="pending-notice">
-            <p>⚡ {pendingOps} transactions processing in background</p>
-          </div>
-        )}
-      </div>
+
     </div>
   );
 };

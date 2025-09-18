@@ -72,7 +72,7 @@ const BlockchainFeed: React.FC<BlockchainFeedProps> = ({ isGameActive, transacti
               {isGameActive ? 'Transactions will appear as you type!' : 'Start a game to see transactions!'}
             </div>
           ) : (
-            transactions.slice(-10).reverse().map((tx, index) => (
+            transactions.slice().reverse().map((tx) => (
               <div key={tx.hash || tx.id || `${tx.type}-${tx.timestamp}`} className="transaction">
                 <span className="tx-icon">{getStatusIcon(tx.status)}</span>
                 <span className="tx-description">

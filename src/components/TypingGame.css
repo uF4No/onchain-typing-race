@@ -302,85 +302,7 @@
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
-.transaction-preview {
-  margin-top: 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  opacity: 0.8;
-}
 
-.transaction-preview h4 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-  text-align: center;
-}
-
-.transactions-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.transaction {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.6rem 0.8rem;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-}
-
-.transaction.letter {
-  border-left: 3px solid #60a5fa;
-}
-
-.transaction.word {
-  border-left: 3px solid #10b981;
-}
-
-.tx-type-icon {
-  font-size: 1rem;
-  margin-right: 0.5rem;
-}
-
-.tx-data {
-  flex: 1;
-  font-family: 'Courier New', monospace;
-  font-size: 0.8rem;
-}
-
-.transaction.pending {
-  border-color: rgba(251, 191, 36, 0.3);
-  background: rgba(251, 191, 36, 0.05);
-}
-
-.transaction.confirmed {
-  border-color: rgba(16, 185, 129, 0.3);
-  background: rgba(16, 185, 129, 0.05);
-}
-
-.tx-word {
-  font-weight: bold;
-  font-family: 'Courier New', monospace;
-}
-
-.tx-status {
-  font-size: 1.2rem;
-}
-
-.tx-status.pending {
-  color: #fbbf24;
-}
-
-.tx-status.confirmed {
-  color: #10b981;
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -437,14 +359,7 @@
     font-size: 1rem;
   }
   
-  .transaction-preview {
-    margin-top: 1.5rem;
-    padding: 0.8rem;
-  }
-  
-  .transaction-preview h4 {
-    font-size: 1rem;
-  }
+
   
   .transaction {
     padding: 0.5rem 0.6rem;
@@ -590,40 +505,7 @@
   font-weight: bold;
 }
 
-/* Transaction preview enhancements */
-.pending-notice {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  background: rgba(251, 191, 36, 0.2);
-  border: 1px solid rgba(251, 191, 36, 0.3);
-  border-radius: 6px;
-  text-align: center;
-}
 
-.pending-notice p {
-  margin: 0;
-  color: #fbbf24;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-/* Transaction status colors */
-.transaction.sent {
-  border-left: 3px solid #3b82f6;
-}
-
-.transaction.sent .tx-status {
-  color: #3b82f6;
-}
-
-.transaction.failed {
-  border-left: 3px solid #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-}
-
-.transaction.failed .tx-status {
-  color: #ef4444;
-}
 
 /* Game actions */
 .game-actions {

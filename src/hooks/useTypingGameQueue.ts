@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { useWalletClient, useAccount, usePublicClient, useWaitForTransactionReceipt } from 'wagmi';
+import { useWalletClient, useAccount, usePublicClient } from 'wagmi';
 import type { Hash } from 'viem';
 import {eip712WalletActions, getGeneralPaymasterInput} from 'viem/zksync'
 
@@ -424,10 +424,9 @@ export const useTypingGameQueue = () => {
     
     setTransactions(prev => {
       const pendingTxs = prev.filter(tx => tx.status === 'pending' || tx.status === 'sent');
-      const otherTxs = prev.filter(tx => tx.status !== 'pending' && tx.status !== 'sent');
       
       // Convert all pending/sent transactions to confirmed with staggered timing
-      const fastForwardedTxs = pendingTxs.map((tx, index) => ({
+      const fastForwardedTxs = pendingTxs.map((tx) => ({
         ...tx,
         status: 'confirmed' as const,
         hash: tx.hash || `0x${'f'.repeat(64)}` as Hash, // Mock hash if none exists

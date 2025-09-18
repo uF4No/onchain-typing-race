@@ -101,14 +101,14 @@ function App() {
       <header className="app-header">
         <div className="header-content">
           <div className="header-title">
-            <h1>⚡ Onchain Type Race</h1>
+            <h1>⌨️ 💨 Onchain Typing Race</h1>
             <p>Experience 200ms block times through typing!</p>
           </div>
           <div className="header-auth">
             <div className="nav-buttons">
               <button 
                 onClick={() => setViewMode('game')}
-                className={`nav-button ${viewMode === 'game' ? 'active' : ''}`}
+                className={`nav-button ${(viewMode === 'game' || viewMode === 'results') ? 'active' : ''}`}
               >
                 🎮 Game
               </button>
@@ -164,39 +164,39 @@ function App() {
       <main className="app-main">
 
         
-        {viewMode === 'results' && lastGameResults && (
-          <div className="results-view">
-            <GameResultsComponent 
-              results={lastGameResults}
-              onPlayAgain={() => setViewMode('game')}
-              onViewLeaderboard={() => setViewMode('leaderboard')}
-              userAddress={address}
-            />
-          </div>
-        )}
-
         {viewMode === 'leaderboard' && (
           <div className="leaderboard-view">
             <Leaderboard />
           </div>
         )}
         
-        {viewMode === 'game' && (
+        {(viewMode === 'game' || viewMode === 'results') && (
           <div className="game-view">
             <div className="game-container">
-              <TypingGame 
-                isGameActive={isGameActive}
-                onGameStateChange={setIsGameActive}
-                onTransactionUpdate={handleTransactionUpdate}
-                onClearHistory={handleClearHistory}
-                onGameComplete={handleGameComplete}
-                onGameStart={handleGameStart}
-                userAddress={address || null}
-                sessionKey={null}
-              />
+              {viewMode === 'game' ? (
+                <TypingGame 
+                  isGameActive={isGameActive}
+                  onGameStateChange={setIsGameActive}
+                  onTransactionUpdate={handleTransactionUpdate}
+                  onClearHistory={handleClearHistory}
+                  onGameComplete={handleGameComplete}
+                  onGameStart={handleGameStart}
+                  userAddress={address || null}
+                  sessionKey={null}
+                />
+              ) : (
+                lastGameResults && (
+                  <GameResultsComponent 
+                    results={lastGameResults}
+                    onPlayAgain={() => setViewMode('game')}
+                    onViewLeaderboard={() => setViewMode('leaderboard')}
+                    userAddress={address}
+                  />
+                )
+              )}
             </div>
             
-            <div className="">
+            <div className="blockchain-feed-container">
               <BlockchainFeed 
                 isGameActive={isGameActive} 
                 transactions={transactions}

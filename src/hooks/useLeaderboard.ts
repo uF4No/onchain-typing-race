@@ -55,7 +55,7 @@ export const useLeaderboard = () => {
     }
 
     // Mock mode for development (when contract address is not set)
-    if (!TYPING_GAME_ADDRESS || TYPING_GAME_ADDRESS === '') {
+    if (!TYPING_GAME_ADDRESS || TYPING_GAME_ADDRESS.length === 0) {
       console.log('Using mock leaderboard data');
       setIsLoading(true);
       
