@@ -59,7 +59,7 @@ const ZKSyncAuth: React.FC<ZKSyncAuthProps> = ({ onAuthSuccess, onAuthError }) =
       <div className="auth-card">
         <div className="auth-header">
           <div className="auth-icon">⌨️💨</div>
-          <h1>Welcome to Onchain Type Racer</h1>
+          <h1>Welcome to Onchain Typing Race</h1>
           <p>Experience 200ms block times through typing!</p>
         </div>
 
