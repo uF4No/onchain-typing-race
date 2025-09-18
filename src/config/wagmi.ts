@@ -7,9 +7,13 @@ import {typing_game_abi} from './abis'
 
 export const config = createConfig({
   chains: [zksyncSepoliaTestnet],
+  
   connectors: [
     // ZKsync SSO connector for biometric authentication
     zksyncSsoConnector({
+      metadata: {
+        name: 'ZKsync Typing Race'
+      },
       // Session configuration for gasless transactions
       session: {
         expiry: '1 hour', // 1 hour session
