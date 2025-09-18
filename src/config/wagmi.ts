@@ -18,7 +18,7 @@ export const config = createConfig({
       // Session configuration for gasless transactions
       session: {
         expiry: '1 hour', // 1 hour session
-        feeLimit: parseEther('0.1'), // Maximum ETH that can be spent on gas
+        feeLimit: parseEther('0.01'), // Maximum ETH that can be spent on gas
         // Allow calls to specific contracts
         contractCalls: [
           callPolicy({
