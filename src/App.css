@@ -1,0 +1,274 @@
+/* Reset body styles that interfere with our layout */
+body {
+  margin: 0;
+  padding: 0;
+  display: block !important;
+  place-items: unset !important;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+.app-header {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-title {
+  text-align: left;
+}
+
+.header-title h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #60a5fa, #34d399, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+.header-title p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.header-auth {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  padding: 8px 16px;
+  background: #374151;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  opacity: 0.8;
+}
+
+.nav-button.active {
+  background: #60a5fa;
+}
+
+.account-dropdown {
+  position: relative;
+}
+
+.address-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.auth-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.auth-indicator {
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+}
+
+.auth-text {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.app-main {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.game-view {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.blockchain-feed {
+  width: 100%;
+  max-width: 800px;
+}
+
+.results-view {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.leaderboard-view {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 968px) {
+  .app {
+    padding: 1rem;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .header-title {
+    text-align: center;
+  }
+  
+  .header-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .header-auth {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .leaderboard-view {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 0.5rem;
+  }
+  
+  .header-title h1 {
+    font-size: 2rem;
+  }
+  
+  .header-title p {
+    font-size: 1rem;
+  }
+  
+  .auth-status {
+    padding: 6px 12px;
+  }
+  
+  .auth-text {
+    font-size: 0.8rem;
+  }
+  
+  .nav-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .header-auth {
+    gap: 1rem;
+  }
+  
+  .leaderboard-view {
+    padding: 5px;
+  }
+}
